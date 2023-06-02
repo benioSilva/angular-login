@@ -1,0 +1,24 @@
+<h1>Lista de Cadastros</h1>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Status</th>
+            <th scope="col">Alterar Status</th>
+            <th scope="col">Excluir Conta</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dadosCadastrais of cadastros, let i = index">
+            
+            <th scope="row">  {{dadosCadastrais.id}} </th>
+            <td> {{dadosCadastrais.username}} </td>
+            <td>{{dadosCadastrais.email}}</td>
+            <td>{{dadosCadastrais.status}}</td>
+            <td> <button (click)="trocaDeStatus()">Alterar</button> </td>
+            <td><button>Excluir</button></td>
+        </tr>
+    </tbody>
+</table>
