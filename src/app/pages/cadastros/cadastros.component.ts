@@ -11,26 +11,35 @@ export class CadastrosComponent implements OnInit {
   }
   
   cadastros: any = this.getStorageDados();
+  index = ""
+  id = ""
   
-  trocaDeStatus(){
+  trocaDeStatus(index: any){
     
-    if(this.cadastros.status == "Desativado"){
-      this.cadastros.status = "Ativado"
+    if(this.cadastros[index].status == "Desativado"){
+      this.cadastros[index].status = "Ativado"
       localStorage.setItem('dadosRegistrados', JSON.stringify(this.cadastros))
       console.log(this.cadastros)
     } else{
-      this.cadastros.status = "Desativado"
+      this.cadastros[index].status = "Desativado"
       localStorage.setItem('dadosRegistrados', JSON.stringify(this.cadastros))
       console.log(this.cadastros)
     }
   
+  }
+
+  excluirCadastro(id: any){
+    this.cadastros=this.cadastros.filter(function(element: any){
+      return id != element.id 
+    })
+    localStorage.setItem('dadosRegistrados', JSON.stringify(this.cadastros))
   }
   constructor(){
 
   }
 
   ngOnInit() {
-  this.trocaDeStatus()
+  
   }
  
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterEvent, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,16 +15,23 @@ export class LoginComponent implements OnInit {
     return JSON.parse(localStorage.getItem('dadosRegistrados') || "[]")
   }
 
-  onclickValidarDados(form: any) {
-    const dadosStorage = this.getStorageDados()
-    dadosStorage.filter(function(element: any){
-      console.log(element)
+  onclickValidarDados(form: any): any {
+    let dadosStorage = this.getStorageDados()
+    dadosStorage = dadosStorage.filter(function(element: any){
+      console.log(element.username == form.value.usernameLogin)
+      return element.username == form.value.usernameLogin
     })
     
-    console.log(dadosStorage)
-    if(this.form.usernameLogin){ 
+    if(dadosStorage.length == 1){
+      console.log("ok")
+        if(dadosStorage[0].password == form.value.senhaLogin){
+          alert("pagina cadastro")
+          return  
+        } 
+        
       
-    }
+    } 
+    alert("usuario ou senha invalidos")
   }
   constructor(){
 

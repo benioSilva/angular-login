@@ -1,8 +1,8 @@
 <h3>Login</h3>
-<form #fLogin="ngForm" (ngSubmit)=" onclickValidarDados(fLogin)">
-<input type="text" name="usernameLogin" placeholder="usernameLogin" (ngModel)="form.usernameLogin">
-<br><br>
-<input type="text" name="senhaLogin" placeholder="senhaLogin" (ngModel)="form.senhaLogin" >
-<br><br>
-<button>Logar</button>
+<form #cLogin="ngForm" (ngSubmit)=" onclickValidarDados(cLogin)">
+    <input type="text" name="usernameLogin" placeholder="usernameLogin" [(ngModel)]="form.usernameLogin" />
+    <br><br>
+    <input type="password" name="senhaLogin" placeholder="senhaLogin" [(ngModel)]="form.senhaLogin" />
+    <br><br>
+    <button>Logar</button>
 </form>
