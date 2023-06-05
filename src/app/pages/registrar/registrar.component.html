@@ -1,14 +1,26 @@
-<h3>Registro</h3>
-<form #fLogin="ngForm" (ngSubmit)="onclickSalvar(fLogin)">
-    <input type="text" placeholder="Username" name="username"  [(ngModel)]="form.username" /><br>
-    <br>
-    <input type="text" placeholder="email" name="email"  [(ngModel)]="form.email" /><br>
-    <br>
-    <input type="password" placeholder="password" name="password" [(ngModel)]="form.password" /><br>
-    <br>
-    <input type="password" placeholder="repeat-pasword" name="repeatPassword"
-        [(ngModel)]="form.repeatPassword" /><br>
-    <br>
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <h3>Registro</h3>
+    <form #fLogin="ngForm" (ngSubmit)="onclickSalvar(fLogin)">
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Username" name="username"
+                [(ngModel)]="form.username" /><br>
+        </div>
+        <br>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="email" name="email" [(ngModel)]="form.email" /><br>
+        </div>
+        <br>
+        <div class="mb-3">
+            <input type="password" class="form-control" placeholder="password" name="password"
+                [(ngModel)]="form.password" /><br>
+        </div>
+        <br>
+        <div class="mb-3">
+            <input type="password" class="form-control" placeholder="repeat-pasword" name="repeatPassword"
+                [(ngModel)]="form.repeatPassword" /><br>
+        </div>
+        <br>
 
-    <button >Salvar dados</button>
-</form>
+        <button class="btn btn-success">Salvar dados</button>
+    </form>
+</body>

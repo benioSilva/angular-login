@@ -1,24 +1,28 @@
-<h1>Lista de Cadastros</h1>
-<table>
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-            <th scope="col">Status</th>
-            <th scope="col">Alterar Status</th>
-            <th scope="col">Excluir Conta</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let dadosCadastrais of cadastros, let i = index">
-            
-            <th scope="row">  {{dadosCadastrais.id}} </th>
-            <td> {{dadosCadastrais.username}} </td>
-            <td>{{dadosCadastrais.email}}</td>
-            <td>{{dadosCadastrais.status}}</td>
-            <td> <button (click)="toggleStatus(dadosCadastrais.id)">Alterar</button> </td>
-            <td><button (click)="excluirCadastro(dadosCadastrais.id)">Excluir</button></td>
-        </tr>
-    </tbody>
-</table>
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <h1>Lista de Cadastros</h1>
+    <table class="table table-light">
+        <thead>
+            <tr class="table table-light">
+                <th scope="col" class="table-light">ID</th>
+                <th scope="col" class="table-light">Username</th>
+                <th scope="col" class="table-light">Email</th>
+                <th scope="col" class="table-light">Status</th>
+                <th scope="col" class="table-light">Alterar Status</th>
+                <th scope="col" class="table-light">Excluir Conta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-light" *ngFor="let dadosCadastrais of cadastros, let i = index">
+
+                <th class="table-light" scope="row"> {{dadosCadastrais.id}} </th>
+                <td class="table-light"> {{dadosCadastrais.username}} </td>
+                <td class="table-light">{{dadosCadastrais.email}}</td>
+                <td class="table-light">{{dadosCadastrais.status}}</td>
+                <td class="table-light"> <button class="btn btn-warning"
+                        (click)="toggleStatus(dadosCadastrais.id)">Alterar</button> </td>
+                <td class="table-light"><button class="btn btn-danger"
+                        (click)="excluirCadastro(dadosCadastrais.id)">Excluir</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
