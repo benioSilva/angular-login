@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterEvent, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import {  RouterLink  } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
     if(dadosStorage.length == 1){
       console.log("ok")
         if(dadosStorage[0].password == form.value.senhaLogin){
+           window.location.href = "http://localhost:4200/cadastros"
           alert("pagina cadastro")
           return  
         } 

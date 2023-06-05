@@ -17,7 +17,7 @@
             <td> {{dadosCadastrais.username}} </td>
             <td>{{dadosCadastrais.email}}</td>
             <td>{{dadosCadastrais.status}}</td>
-            <td> <button (click)="trocaDeStatus(i)">Alterar</button> </td>
+            <td> <button (click)="toggleStatus(dadosCadastrais.id)">Alterar</button> </td>
             <td><button (click)="excluirCadastro(dadosCadastrais.id)">Excluir</button></td>
         </tr>
     </tbody>

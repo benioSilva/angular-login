@@ -10,7 +10,7 @@ import { CadastrosComponent } from './pages/cadastros/cadastros.component';
 import { LoginComponent } from './pages/login/login.component';
 
 const routes: Route[] = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'registrar', pathMatch: 'full' },
   { path: 'registrar', component: RegistrarComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cadastros', component: CadastrosComponent },
