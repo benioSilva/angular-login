@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { Route, RouterModule } from '@angular/router';
 import { CadastrosComponent } from './pages/cadastros/cadastros.component';
 import { LoginComponent } from './pages/login/login.component';
+import { UsuarioService } from './service/usuario.service';
 
 const routes: Route[] = [
   { path: '', redirectTo: 'registrar', pathMatch: 'full' },
@@ -30,7 +31,9 @@ const routes: Route[] = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    UsuarioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

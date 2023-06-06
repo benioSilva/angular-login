@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 
 @Component({
@@ -8,42 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrarComponent implements OnInit {
   form: any = {}
-  
 
-  getStorageDados() {
-    return JSON.parse(localStorage.getItem('dadosRegistrados') || "[]")
-  }
-  constructor() { }
+
+
+  constructor(private usuarioSrv: UsuarioService) { }
   ngOnInit() {
+    if (this.usuarioSrv.getUserList().length == 0) {
+      localStorage.removeItem('dadosRegistrados')
+    }
 
 
   }
+
+
 
   verificarUsername(form: any): any {
-    console.log(form.value)
-    let dadosStorage = this.getStorageDados()
+    let dadosStorage = this.usuarioSrv.getUserList()
     dadosStorage = dadosStorage.filter(function (element: any) {
-      console.log(element.username == form.value.username)
       return element.username == form.value.username
     })
-    console.log(dadosStorage)
     if (dadosStorage.length == 1) {
       if (dadosStorage[0].username == form.value.username) {
         return true
       }
     }
-    
   }
 
-  generateId(){
+  generateId() {
     return new Date().getTime()
   }
   onclickSalvar(form: any) {
-   
+
     if (!this.form.username || !this.form.username.trim()) {
       return alert("preencher campo username")
     }
-    
     if (!this.form.email || !this.form.email.trim()) {
       return alert("preencher campo email")
     }
@@ -62,10 +61,10 @@ export class RegistrarComponent implements OnInit {
     } else {
       this.form.id = this.generateId()
       this.form.status = "Desativado"
-      const cadastros = this.getStorageDados()
-      
+      const cadastros = this.usuarioSrv.getUserList()
+
       cadastros.push(this.form)
-      localStorage.setItem('dadosRegistrados', JSON.stringify(cadastros))
+      this.usuarioSrv.setUserList(cadastros)
 
       alert('usuario registrado')
       this.form = {}
